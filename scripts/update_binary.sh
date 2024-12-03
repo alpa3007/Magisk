@@ -2,6 +2,7 @@
 X86_CNT=__X86_CNT__
 extract_bb() {
   touch "$BBBIN"
+  
   chmod 755 "$BBBIN"
   dd if="$0" of="$BBBIN" bs=1024 skip=1 count=$X86_CNT
   "$BBBIN" >/dev/null 2>&1 || dd if="$0" of="$BBBIN" bs=1024 skip=$(($X86_CNT + 1))
